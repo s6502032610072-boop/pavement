@@ -256,50 +256,59 @@ with tab1:
     # ── Layer Definitions ─────────────────────────────────────────────────────
     LAYER_DEFS = [
         {
-            "no":1, "label":"ชั้นที่ 1 — Wearing Course (ผิวทางสึกหรอ)",
+            "no":1,
+            "label":"ชั้นที่ 1 — ผิวทางลาดยาง (Asphalt Concrete)",
             "css":"layer-wearing", "emoji":"🟡",
-            "mat_opts":["Dense Graded Asphalt (a=0.44)","SMA Stone Mastic Asphalt (a=0.44)",
-                        "Open Graded Asphalt (a=0.40)","Polymer Modified Asphalt (a=0.46)","กำหนดเอง"],
-            "mat_a":[0.44,0.44,0.40,0.46,0.44],
-            "has_drain":False, "D_min_cm":5, "D_max_cm":20, "D_def_cm":5,
-            "a_def":0.44, "a_min":0.30, "a_max":0.50, "use_def":True,
+            "mat_opts":["ผิวทางลาดยาง AC (a=0.40)","Dense Graded Asphalt (a=0.44)",
+                        "Polymer Modified Asphalt (a=0.46)","กำหนดเอง"],
+            "mat_a":[0.40, 0.44, 0.46, 0.40],
+            "D_min_cm":5, "D_max_cm":20,
+            "a_def":0.40, "a_min":0.25, "a_max":0.55,
+            "m_def":1.1,  "use_def":True,
         },
         {
-            "no":2, "label":"ชั้นที่ 2 — Binder Course (ชั้นประสาน)",
+            "no":2,
+            "label":"ชั้นที่ 2 — พื้นทางซีเมนต์ (CTBAC — Cement Treated Base)",
             "css":"layer-binder", "emoji":"🟠",
-            "mat_opts":["Dense Graded Asphalt Binder (a=0.44)","Asphalt Treated Base (a=0.40)",
-                        "Semi-Dense Asphalt (a=0.42)","กำหนดเอง"],
-            "mat_a":[0.44,0.40,0.42,0.44],
-            "has_drain":False, "D_min_cm":5, "D_max_cm":25, "D_def_cm":7,
-            "a_def":0.44, "a_min":0.30, "a_max":0.50, "use_def":True,
+            "mat_opts":["พื้นทางซีเมนต์ CTBAC (a=0.18)","Cement-treated Base (a=0.20)",
+                        "Lean Concrete (a=0.23)","กำหนดเอง"],
+            "mat_a":[0.18, 0.20, 0.23, 0.18],
+            "D_min_cm":10, "D_max_cm":40,
+            "a_def":0.18, "a_min":0.10, "a_max":0.35,
+            "m_def":1.1,  "use_def":True,
         },
         {
-            "no":3, "label":"ชั้นที่ 3 — Base Course (ชั้นรองผิวทาง)",
+            "no":3,
+            "label":"ชั้นที่ 3 — พื้นทางหินคลุก 80% AC (Crushed Stone 80% AC)",
             "css":"layer-base", "emoji":"🟢",
-            "mat_opts":["Crushed Stone Base (a=0.14)","Dense Graded Gravel (a=0.12)",
-                        "Lime-treated Base (a=0.18)","Cement-treated Base (a=0.20)",
-                        "Asphalt Treated Base (a=0.30)","กำหนดเอง"],
-            "mat_a":[0.14,0.12,0.18,0.20,0.30,0.14],
-            "has_drain":True, "D_min_cm":15, "D_max_cm":60, "D_def_cm":20,
-            "a_def":0.14, "a_min":0.05, "a_max":0.40, "use_def":True,
+            "mat_opts":["หินคลุก 80% AC (a=0.13)","Crushed Stone Base (a=0.14)",
+                        "Dense Graded Gravel (a=0.12)","กำหนดเอง"],
+            "mat_a":[0.13, 0.14, 0.12, 0.13],
+            "D_min_cm":10, "D_max_cm":60,
+            "a_def":0.13, "a_min":0.05, "a_max":0.40,
+            "m_def":1.1,  "use_def":True,
         },
         {
-            "no":4, "label":"ชั้นที่ 4 — Subbase Course (ชั้นพื้นทาง)",
+            "no":4,
+            "label":"ชั้นที่ 4 — รองพื้นทางวัสดุมวลรวม CBR 25% (Aggregate Subbase)",
             "css":"layer-subbase", "emoji":"🔵",
-            "mat_opts":["Natural Gravel Subbase (a=0.11)","Sandy Gravel (a=0.10)",
-                        "Lime-treated Subbase (a=0.13)","Crushed Rock Subbase (a=0.12)","กำหนดเอง"],
-            "mat_a":[0.11,0.10,0.13,0.12,0.11],
-            "has_drain":True, "D_min_cm":10, "D_max_cm":60, "D_def_cm":15,
-            "a_def":0.11, "a_min":0.05, "a_max":0.25, "use_def":True,
+            "mat_opts":["วัสดุมวลรวม CBR>=25% (a=0.10)","Natural Gravel CBR>=20% (a=0.09)",
+                        "Sandy Gravel CBR>=15% (a=0.08)","กำหนดเอง"],
+            "mat_a":[0.10, 0.09, 0.08, 0.10],
+            "D_min_cm":10, "D_max_cm":60,
+            "a_def":0.10, "a_min":0.04, "a_max":0.25,
+            "m_def":1.1,  "use_def":True,
         },
         {
-            "no":5, "label":"ชั้นที่ 5 — Select Fill / Improved Subgrade (ชั้นดินคัดเลือก)",
+            "no":5,
+            "label":"ชั้นที่ 5 — วัสดุคัดเลือก (Selected Material)",
             "css":"layer-select", "emoji":"🟣",
-            "mat_opts":["Selected Soil CBR>=10% (a=0.08)","Lime-stabilized Subgrade (a=0.10)",
-                        "Cement-stabilized (a=0.12)","Fly Ash Treated (a=0.09)","กำหนดเอง"],
-            "mat_a":[0.08,0.10,0.12,0.09,0.08],
-            "has_drain":True, "D_min_cm":0, "D_max_cm":60, "D_def_cm":0,
-            "a_def":0.08, "a_min":0.04, "a_max":0.20, "use_def":False,
+            "mat_opts":["วัสดุคัดเลือก (a=0.08)","Selected Soil CBR>=10% (a=0.08)",
+                        "Lime-stabilized (a=0.10)","Cement-stabilized (a=0.12)","กำหนดเอง"],
+            "mat_a":[0.08, 0.08, 0.10, 0.12, 0.08],
+            "D_min_cm":0, "D_max_cm":60,
+            "a_def":0.08, "a_min":0.04, "a_max":0.20,
+            "m_def":1.1,  "use_def":True,
         },
     ]
 
@@ -309,39 +318,32 @@ with tab1:
     with col_left:
         for ld in LAYER_DEFS:
             n = ld["no"]
-            with st.expander(f"{ld['emoji']} {ld['label']}", expanded=(n <= 4)):
-                ca, cb, cc = st.columns([1.4, 0.7, 0.5])
+            with st.expander(f"{ld['emoji']} {ld['label']}", expanded=True):
+                ca, cb, cc, cd = st.columns([1.5, 0.55, 0.55, 0.45])
                 with ca:
-                    mat = st.selectbox(f"วัสดุ", ld["mat_opts"], key=f"mat_{n}")
+                    mat = st.selectbox("วัสดุ", ld["mat_opts"], key=f"mat_{n}")
                     idx = ld["mat_opts"].index(mat)
                     a_default = float(ld["mat_a"][idx])
                 with cb:
-                    a_val = st.number_input(f"aᵢ", ld["a_min"], ld["a_max"],
+                    a_val = st.number_input("aᵢ", ld["a_min"], ld["a_max"],
                                              a_default, 0.01, key=f"a_{n}")
                 with cc:
-                    use_layer = st.checkbox("ใช้ชั้นนี้", value=ld["use_def"], key=f"use_{n}")
-
-                cd, ce = st.columns(2)
+                    m_val = st.number_input("mᵢ", 0.40, 1.40,
+                                             ld["m_def"], 0.05, key=f"m_{n}",
+                                             help="Drainage Coefficient (1.1 = ดีเยี่ยม-ดี)")
                 with cd:
+                    use_layer = st.checkbox("ใช้", value=ld["use_def"], key=f"use_{n}")
+
+                ce, cf = st.columns(2)
+                with ce:
                     D_min_cm = st.number_input("ความหนาขั้นต่ำ (cm)", 0, ld["D_max_cm"],
                                                 ld["D_min_cm"] if use_layer else 0,
                                                 1, key=f"Dmin_{n}")
-                with ce:
+                with cf:
                     D_max_cm = st.number_input("ความหนาสูงสุด (cm)", D_min_cm, 150,
                                                 ld["D_max_cm"], 1, key=f"Dmax_{n}")
 
-                if ld["has_drain"]:
-                    cf, cg = st.columns(2)
-                    with cf:
-                        dq = st.selectbox("คุณภาพการระบายน้ำ", DRAIN_KEYS,
-                                           index=1, key=f"dq_{n}")
-                    with cg:
-                        sat = st.selectbox("% เวลาที่ชั้นทางอิ่มตัว", SAT_KEYS,
-                                            index=1, key=f"sat_{n}")
-                    m_val = DRAIN_COEFF[dq][sat]
-                    st.caption(f"m = {m_val:.3f}")
-                else:
-                    m_val = 1.0
+                st.caption(f"SN contribution = aᵢ × mᵢ × Dᵢ = {a_val:.2f} × {m_val:.2f} × Dᵢ")
 
                 layers_config.append({
                     "no": n, "label": ld["label"], "css": ld["css"], "emoji": ld["emoji"],
@@ -545,30 +547,40 @@ with tab3:
     c1, c2 = st.columns(2)
 
     with c1:
-        st.markdown("#### ชั้น 1–2: Asphalt Layers")
+        st.markdown("#### ชั้น 1: ผิวทางลาดยาง (AC)")
         st.dataframe(pd.DataFrame({
-            "ชั้น":["Wearing","Wearing","Binder","Binder","Binder"],
-            "วัสดุ":["Dense Graded AC","Polymer Modified AC","Dense Graded Binder","Asphalt Treated","Semi-Dense"],
-            "E (MPa)":[3000,4000,3000,2500,2800],
-            "aᵢ":[0.44,0.46,0.44,0.40,0.42],
+            "วัสดุ":["ผิวทางลาดยาง AC (ค่ากรมทางหลวง)","Dense Graded AC","Polymer Modified AC"],
+            "E (MPa)":[2500,3000,4000],
+            "a₁":[0.40,0.44,0.46],
+            "m₁ (ค่าแนะนำ)":[1.1,1.1,1.1],
         }), use_container_width=True, hide_index=True)
 
-        st.markdown("#### ชั้น 3: Base Course")
+        st.markdown("#### ชั้น 2: พื้นทางซีเมนต์ (CTBAC)")
         st.dataframe(pd.DataFrame({
-            "วัสดุ":["Crushed Stone","Dense Graded Gravel","Lime-treated","Cement-treated","Asphalt Treated Base"],
-            "a₂":[0.14,0.12,0.18,0.20,0.30],
+            "วัสดุ":["พื้นทางซีเมนต์ CTBAC","Cement-treated Base","Lean Concrete"],
+            "a₂":[0.18,0.20,0.23],
+            "m₂ (ค่าแนะนำ)":[1.1,1.1,1.1],
         }), use_container_width=True, hide_index=True)
 
-        st.markdown("#### ชั้น 4: Subbase")
+        st.markdown("#### ชั้น 3: พื้นทางหินคลุก 80% AC")
         st.dataframe(pd.DataFrame({
-            "วัสดุ":["Sandy Gravel CBR>=20%","Natural Gravel CBR>=25%","Lime-treated","Crushed Rock"],
-            "a₃":[0.10,0.11,0.13,0.12],
+            "วัสดุ":["หินคลุก 80% AC","Crushed Stone Base","Dense Graded Gravel"],
+            "a₃":[0.13,0.14,0.12],
+            "m₃ (ค่าแนะนำ)":[1.1,1.1,1.1],
         }), use_container_width=True, hide_index=True)
 
-        st.markdown("#### ชั้น 5: Select Fill")
+        st.markdown("#### ชั้น 4: รองพื้นทางวัสดุมวลรวม CBR 25%")
         st.dataframe(pd.DataFrame({
-            "วัสดุ":["Selected Soil CBR>=10%","Lime-stabilized","Cement-stabilized","Fly Ash Treated"],
-            "a₄":[0.08,0.10,0.12,0.09],
+            "วัสดุ":["วัสดุมวลรวม CBR>=25%","Natural Gravel CBR>=20%","Sandy Gravel CBR>=15%"],
+            "a₄":[0.10,0.09,0.08],
+            "m₄ (ค่าแนะนำ)":[1.1,1.1,1.1],
+        }), use_container_width=True, hide_index=True)
+
+        st.markdown("#### ชั้น 5: วัสดุคัดเลือก (Selected Material)")
+        st.dataframe(pd.DataFrame({
+            "วัสดุ":["วัสดุคัดเลือก","Selected Soil CBR>=10%","Lime-stabilized","Cement-stabilized"],
+            "a₅":[0.08,0.08,0.10,0.12],
+            "m₅ (ค่าแนะนำ)":[1.1,1.1,1.1,1.1],
         }), use_container_width=True, hide_index=True)
 
     with c2:
@@ -606,11 +618,13 @@ with tab4:
     log(W18) = ZR x S0 + 9.36 x log(SN+1) - 0.20<br>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ log[DPSI/(4.2-1.5)] / [0.40 + 1094/(SN+1)^5.19]<br>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ 2.32 x log(MR) - 8.07<br><br>
-    <b style="color:#a8d0f0;">Structural Number — 5 ชั้น:</b><br>
-    SN = a1*D1 + a2*D2 + a3*m3*D3 + a4*m4*D4 + a5*m5*D5<br><br>
-    &nbsp;&nbsp; D1,D2 = ความหนาชั้น AC (นิ้ว),  m = 1.0 (AC ไม่รับผล Drainage)<br>
-    &nbsp;&nbsp; D3-D5 = ความหนาชั้น Unbound (นิ้ว)<br>
-    &nbsp;&nbsp; m3-m5 = Drainage Coefficient (0.40-1.40)<br><br>
+    <b style="color:#a8d0f0;">Structural Number — 5 ชั้น (กรมทางหลวง):</b><br>
+    SN = a1*m1*D1 + a2*m2*D2 + a3*m3*D3 + a4*m4*D4 + a5*m5*D5<br><br>
+    &nbsp;&nbsp; D1 = ผิวทางลาดยาง AC          a1=0.40, m1=1.1<br>
+    &nbsp;&nbsp; D2 = พื้นทางซีเมนต์ CTBAC      a2=0.18, m2=1.1<br>
+    &nbsp;&nbsp; D3 = พื้นทางหินคลุก 80% AC      a3=0.13, m3=1.1<br>
+    &nbsp;&nbsp; D4 = รองพื้นทางวัสดุมวลรวม CBR25% a4=0.10, m4=1.1<br>
+    &nbsp;&nbsp; D5 = วัสดุคัดเลือก               a5=0.08, m5=1.1<br><br>
     <b style="color:#a8d0f0;">MR จาก CBR:</b>  MR (psi) = 1,500 x CBR (%)
     </div>
     """, unsafe_allow_html=True)
@@ -619,13 +633,13 @@ with tab4:
     with c1:
         st.markdown("""
         <div class="info-box">
-        <b style="color:#a8d0f0;">โครงสร้าง 5 ชั้นทาง:</b><br>
-        🟡 <b>Wearing Course</b> — ผิวทางสึกหรอ รับแรงเสียดทาน<br>
-        🟠 <b>Binder Course</b> — ชั้นประสาน เชื่อม Wearing กับ Base<br>
-        🟢 <b>Base Course</b> — รองผิวทาง กระจายน้ำหนักบรรทุก<br>
-        🔵 <b>Subbase Course</b> — ชั้นพื้นทาง ลดความหนาของ Base<br>
-        🟣 <b>Select Fill</b> — ดินคัดเลือก/ปรับปรุงดินเดิม<br>
-        🟤 <b>Subgrade</b> — ดินพื้นทางเดิม (ไม่นับใน SN)
+        <b style="color:#a8d0f0;">โครงสร้าง 5 ชั้นทาง (กรมทางหลวง):</b><br>
+        🟡 <b>ชั้นที่ 1 ผิวทางลาดยาง (AC)</b> — รับแรงเสียดทาน a=0.40 m=1.1<br>
+        🟠 <b>ชั้นที่ 2 พื้นทางซีเมนต์ (CTBAC)</b> — Cement Treated Base a=0.18 m=1.1<br>
+        🟢 <b>ชั้นที่ 3 พื้นทางหินคลุก 80% AC</b> — กระจายน้ำหนัก a=0.13 m=1.1<br>
+        🔵 <b>ชั้นที่ 4 รองพื้นทางวัสดุมวลรวม CBR25%</b> — a=0.10 m=1.1<br>
+        🟣 <b>ชั้นที่ 5 วัสดุคัดเลือก</b> — Selected Material a=0.08 m=1.1<br>
+        🟤 <b>ดินพื้นทาง (Subgrade)</b> — ไม่นับใน SN
         </div>
         """, unsafe_allow_html=True)
     with c2:
